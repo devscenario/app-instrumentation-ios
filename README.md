@@ -17,7 +17,7 @@ https://github.com/devscenario/app-instrumentation-ios.git
 and add the `DevtoolAppInstrumentation` library to your app target. Or in `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "0.2.10")
+.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "0.2.11")
 ```
 
 Requirements: iOS 13+, Xcode 16.4 or newer.
@@ -43,6 +43,14 @@ development-signed. App Store, TestFlight and ad-hoc builds stay closed unless y
 `start(allowInRelease: true)`. Then pick **In-app SDK** as the iOS automation backend in Dev Scenario's
 driver settings.
 
+## Keep it out of App Store builds
+
+Link the SDK only into the builds you test with, for example a dedicated E2E target or scheme, never into
+the build you submit to the App Store. To show SwiftUI content to automation and to perform gestures as
+real touches, the SDK looks up Apple accessibility and touch-event functions that are not public API. It
+calls them only in debuggable builds, but their names are in the binary, and App Store review can reject
+an app that contains them.
+
 ## Version
 
-`0.2.10`. Debug symbols (dSYMs) ship inside the XCFramework.
+`0.2.11`. Debug symbols (dSYMs) ship inside the XCFramework.
