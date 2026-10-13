@@ -16,8 +16,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "DevtoolAppInstrumentation",
-            url: "https://github.com/devscenario/app-instrumentation-ios/releases/download/0.2.11/DevtoolAppInstrumentation.xcframework.zip",
-            checksum: "5f7fb8ec914e1e5f581587a6dc1b5759b4b9f9689146d3f52cc377930fe6f632"
+            url: "https://github.com/devscenario/app-instrumentation-ios/releases/download/0.9.2/DevtoolAppInstrumentation.xcframework.zip",
+            checksum: "b9c1b797252b3e319a71e4eebf76ce02dad61d383706f87a0f6e53d05ae71f5c"
         )
     ]
 )

@@ -17,7 +17,7 @@ https://github.com/devscenario/app-instrumentation-ios.git
 and add the `DevtoolAppInstrumentation` library to your app target. Or in `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "0.2.11")
+.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "0.9.2")
 ```
 
 Requirements: iOS 13+, Xcode 16.4 or newer.
@@ -53,4 +53,4 @@ an app that contains them.
 
 ## Version
 
-`0.2.11`. Debug symbols (dSYMs) ship inside the XCFramework.
+`0.9.2`. Debug symbols (dSYMs) ship inside the XCFramework.
