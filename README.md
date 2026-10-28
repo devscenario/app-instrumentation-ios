@@ -14,10 +14,10 @@ Xcode: **File → Add Package Dependencies…**, enter
 https://github.com/devscenario/app-instrumentation-ios.git
 ```
 
-and add the `DevtoolAppInstrumentation` library to your app target. Or in `Package.swift`:
+and add the `DevScenarioAppInstrumentation` library to your app target. Or in `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "0.9.2")
+.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "1.0.1")
 ```
 
 Requirements: iOS 13+, Xcode 16.4 or newer.
@@ -27,12 +27,12 @@ Requirements: iOS 13+, Xcode 16.4 or newer.
 Start the SDK once, early in the app's launch:
 
 ```swift
-import DevtoolAppInstrumentation
+import DevScenarioAppInstrumentation
 
 @main
 struct MyApp: App {
     init() {
-        DevtoolAppInstrumentation.start()
+        DevScenarioAppInstrumentation.start()
     }
     var body: some Scene { /* ... */ }
 }
@@ -53,4 +53,4 @@ an app that contains them.
 
 ## Version
 
-`0.9.2`. Debug symbols (dSYMs) ship inside the XCFramework.
+`1.0.1`. Debug symbols (dSYMs) ship inside the XCFramework.
