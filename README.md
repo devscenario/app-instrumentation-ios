@@ -17,14 +17,26 @@ https://github.com/devscenario/app-instrumentation-ios.git
 and add the `DevScenarioAppInstrumentation` library to your app target. Or in `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "1.0.1")
+.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "1.1.0")
 ```
 
 Requirements: iOS 13+, Xcode 16.4 or newer.
 
 ## Use
 
-Start the SDK once, early in the app's launch:
+Linking the library is enough: the SDK starts itself when the app finishes launching. Then pick **In-app
+SDK** as the iOS automation backend in Dev Scenario's driver settings.
+
+It only starts in debuggable builds: on the simulator, or on a device when the app is development-signed.
+App Store, TestFlight and ad-hoc builds stay closed unless the app's Info.plist opts in:
+
+| Info.plist key | Type | Effect |
+|---|---|---|
+| `DevScenarioInstrumentationEnabledInRelease` | Boolean | Start in non-debuggable builds too. |
+| `DevScenarioInstrumentationAutoStart` | Boolean | `NO`: don't start at launch; call `start()` yourself. Default `YES`. |
+| `DevScenarioInstrumentationPort` | Number | Listening port (1024–65535) when Dev Scenario passes none and the app calls no `setPort(_:)`; default 7756. |
+
+Calling `start()` yourself is optional and still supported; it starts the SDK before launch finishes:
 
 ```swift
 import DevScenarioAppInstrumentation
@@ -32,16 +44,13 @@ import DevScenarioAppInstrumentation
 @main
 struct MyApp: App {
     init() {
-        DevScenarioAppInstrumentation.start()
+        DevScenarioAppInstrumentation.start()   // optional; the launch start is then a no-op
     }
     var body: some Scene { /* ... */ }
 }
 ```
 
-`start()` only runs in debuggable builds: on the simulator, or on a device when the app is
-development-signed. App Store, TestFlight and ad-hoc builds stay closed unless you call
-`start(allowInRelease: true)`. Then pick **In-app SDK** as the iOS automation backend in Dev Scenario's
-driver settings.
+`start(allowInRelease: true)` opens a non-debuggable build from code, like the Info.plist key.
 
 ## Keep it out of App Store builds
 
@@ -53,4 +62,4 @@ an app that contains them.
 
 ## Version
 
-`1.0.1`. Debug symbols (dSYMs) ship inside the XCFramework.
+`1.1.0`. Debug symbols (dSYMs) ship inside the XCFramework.
