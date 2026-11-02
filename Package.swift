@@ -19,13 +19,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "DevScenarioAppInstrumentation",
-            url: "https://github.com/devscenario/app-instrumentation-ios/releases/download/1.1.0/DevScenarioAppInstrumentation.xcframework.zip",
-            checksum: "751e3463228971354f0b64ce0d3518b67ba6b0a00ccc8be8f5165b7f118d572b"
+            url: "https://github.com/devscenario/app-instrumentation-ios/releases/download/1.1.1/DevScenarioAppInstrumentation.xcframework.zip",
+            checksum: "c156e3e47c4fe7fff25e16aa0bddbf21913d5be4410994cf40ed7ef37c8a9805"
         ),
         .binaryTarget(
             name: "DevScenarioAppInstrumentationAutoStart",
-            url: "https://github.com/devscenario/app-instrumentation-ios/releases/download/1.1.0/DevScenarioAppInstrumentationAutoStart.xcframework.zip",
-            checksum: "f49385b154ad29184b6a47236e277c4a80698d32f8f07632be5fa0c7b55c60b2"
+            url: "https://github.com/devscenario/app-instrumentation-ios/releases/download/1.1.1/DevScenarioAppInstrumentationAutoStart.xcframework.zip",
+            checksum: "62ac83583f7ac43b87562690a37d42d211912de496b6a5ec3b8f8bae8aec7c74"
         )
     ]
 )
