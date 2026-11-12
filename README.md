@@ -17,7 +17,7 @@ https://github.com/devscenario/app-instrumentation-ios.git
 and add the `DevScenarioAppInstrumentation` library to your app target. Or in `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "1.2.0")
+.package(url: "https://github.com/devscenario/app-instrumentation-ios.git", from: "1.2.1")
 ```
 
 Requirements: iOS 13+, Xcode 16.4 or newer.
@@ -32,7 +32,7 @@ App Store, TestFlight and ad-hoc builds stay closed unless the app's Info.plist 
 
 | Info.plist key | Type | Effect |
 |---|---|---|
-| `DevScenarioInstrumentationEnabledInRelease` | Boolean | Start in non-debuggable builds too. |
+| `DevScenarioInstrumentationEnabledInRelease` | Boolean, Array or String | Start in non-debuggable builds too: a Boolean `YES`, a list of bundle ids that includes this app's, or a String `YES`/`true`/`1` (e.g. from a build setting). |
 | `DevScenarioInstrumentationAutoStart` | Boolean | `NO`: don't start at launch; call `start()` yourself. Default `YES`. |
 | `DevScenarioInstrumentationPort` | Number | Listening port (1024–65535) when Dev Scenario passes none and the app calls no `setPort(_:)`; default 7756. |
 
@@ -62,4 +62,4 @@ an app that contains them.
 
 ## Version
 
-`1.2.0`. Debug symbols (dSYMs) ship inside the XCFramework.
+`1.2.1`. Debug symbols (dSYMs) ship inside the XCFramework.
